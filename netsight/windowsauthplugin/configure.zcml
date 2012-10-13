@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="netsight.windowsauthplugin">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <include package=".browser" />
+
+</configure>

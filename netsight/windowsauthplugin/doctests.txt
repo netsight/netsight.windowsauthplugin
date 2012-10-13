@@ -1,0 +1,44 @@
+Tests for netsight.windowsauthplugin
+
+test setup
+----------
+
+    >>> from Testing.ZopeTestCase import user_password
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+
+Plugin setup
+------------
+
+    >>> acl_users_url = "%s/acl_users" % self.portal.absolute_url()
+    >>> browser.addHeader('Authorization', 'Basic %s:%s' % ('portal_owner', user_password))
+    >>> browser.open("%s/manage_main" % acl_users_url)
+    >>> browser.url
+    'http://nohost/plone/acl_users/manage_main'
+    >>> form = browser.getForm(index=0)
+    >>> select = form.getControl(name=':action')
+
+netsight.windowsauthplugin should be in the list of installable plugins:
+
+    >>> 'Windowsauthplugin Helper' in select.displayOptions
+    True
+
+and we can select it:
+
+    >>> select.getControl('Windowsauthplugin Helper').click()
+    >>> select.displayValue
+    ['Windowsauthplugin Helper']
+    >>> select.value
+    ['manage_addProduct/netsight.windowsauthplugin/manage_add_windowsauthplugin_helper_form']
+
+we add 'Windowsauthplugin Helper' to acl_users:
+
+    >>> from netsight.windowsauthplugin.plugin import WindowsauthpluginHelper
+    >>> myhelper = WindowsauthpluginHelper('myplugin', 'Windowsauthplugin Helper')
+    >>> self.portal.acl_users['myplugin'] = myhelper
+
+and so on. Continue your tests here
+
+    >>> 'ALL OK'
+    'ALL OK'
+
