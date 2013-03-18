@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.2 (2013-03-18)
+----------------
+
+- Works with subrequests now (p.a.theming)
+
 0.9dev (unreleased)
 -------------------
 
