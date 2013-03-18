@@ -140,6 +140,11 @@ class WindowsauthpluginHelper( BasePlugin ):
         response = request.RESPONSE
         remote_host = request.getClientAddr()
 
+        # We are actually already authenticated... maybe we are in a subrequest
+        if request.get('AUTHENTICATED_USER', None) is not None:
+            username = request.AUTHENTICATED_USER.getName()
+            return username, username
+
         ticket = credentials['ticket']
 
         if WINDOWS:
