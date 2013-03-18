@@ -1,5 +1,9 @@
-0.9 (xxxx-xx-xx)
-----------------
+1.1 2013-03-18
+--------------
 
-- Created recipe with ZopeSkel
-  [""].
+- Fixed it so we work within a subrequest (so p.a.themeing works)
+
+0.9 Initial release
+-------------------
+
+- Initial release
