@@ -64,23 +64,23 @@ In the example below:
  - intranet.example.com is the hostname used in the URL to your site
  - EXAMPLE.COM is your active directory domain
  - plonesvc is the user account created to associate this SPN with
- - c:\temp\intranet.keytab is the location of the exported keytab
+ - c:\\temp\\intranet.keytab is the location of the exported keytab
 
-+----------------+-------------------------------------------------------------------------------------------------+------------------------------------------------+
-|                | Windows 2008 SP2 DC                                                                             | Windows 2003 SP3 DC                            |
-+----------------+------------------------------------------------+------------------------------------------------+------------------------------------------------+
-| Crypto type    |  RC4                                           | AES256 (not supported by WinXP)                | RC4                                            |
-+----------------+------------------------------------------------+------------------------------------------------+------------------------------------------------+
-| ktpass command | | C:\>ktpass                                   | | C:\>ktpass                                   | | C:\>ktpass                                   |
-|                | | -princ HTTP/intranet.example.com@EXAMPLE.COM | | -princ HTTP/intranet.example.com@EXAMPLE.COM | | -princ HTTP/intranet.example.com@EXAMPLE.COM |
-|                | | -mapuser plonesvc@EXAMPLE.COM                | | -mapuser plonesvc@EXAMPLE.COM                | | -mapuser plonesvc@EXAMPLE.COM                |
-|                | | -crypto RC4-HMAC-NT                          | | -crypto AES256-SHA1                          | | -crypto rc4-hmac-nt                          |
-|                | | -ptype KRB5_NT_PRINCIPAL                     | | -ptype KRB5_NT_PRINCIPAL                     | | -ptype KRB5_NT_SRV_HST                       |
-|                | | -pass long!$longp2ass3word                   | | -pass long!$longp2ass3word                   | | -pass longlongpassword                       |
-|                | | -out c:\temp\intranet.keytab                 | | -out c:\temp\intranet.keytab                 | | -out c:\temp\intranet.keytab                 |
-+----------------+------------------------------------------------+------------------------------------------------+------------------------------------------------+
++----------------+---------------------------------------------------------------------------------------------------+------------------------------------------------+
+|                | Windows 2008 SP2 DC                                                                               | Windows 2003 SP3 DC                            |
++----------------+--------------------------------------------------+------------------------------------------------+------------------------------------------------+
+| Crypto type    |  RC4                                             | AES256 (not supported by WinXP)                | RC4                                            |
++----------------+--------------------------------------------------+------------------------------------------------+------------------------------------------------+
+| ktpass command | | C:\\>ktpass                                    | | C:\\>ktpass                                  | | C:\\>ktpass                                  |
+|                | | -princ HTTP/intranet.example.com@EXAMPLE.COM   | | -princ HTTP/intranet.example.com@EXAMPLE.COM | | -princ HTTP/intranet.example.com@EXAMPLE.COM |
+|                | | -mapuser plonesvc@EXAMPLE.COM                  | | -mapuser plonesvc@EXAMPLE.COM                | | -mapuser plonesvc@EXAMPLE.COM                |
+|                | | -crypto RC4-HMAC-NT                            | | -crypto AES256-SHA1                          | | -crypto rc4-hmac-nt                          |
+|                | | -ptype KRB5_NT_PRINCIPAL                       | | -ptype KRB5_NT_PRINCIPAL                     | | -ptype KRB5_NT_SRV_HST                       |
+|                | | -pass long!$longp2ass3word                     | | -pass long!$longp2ass3word                   | | -pass longlongpassword                       |
+|                | | -out c:\\temp\\intranet.keytab                 | | -out c:\\temp\\intranet.keytab               | | -out c:\\temp\\intranet.keytab               |
++----------------+--------------------------------------------------+------------------------------------------------+------------------------------------------------+
 
-The keytab exported to *c:\temp\intranet.keytab* needs to be copied
+The keytab exported to *c:\\temp\\intranet.keytab* needs to be copied
 securely to the server running Plone.
 
 
