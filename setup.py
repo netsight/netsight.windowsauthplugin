@@ -57,11 +57,11 @@ setup(name='netsight.windowsauthplugin',
       zip_safe=False,
       install_requires=['setuptools',
                         # -*- Extra requirements: -*-
-                        'kerberos',
-                        'python-ldap',
                         ],
       tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
+      extras_require=dict(tests=tests_require,
+                          win32=[],
+                          unix=['kerberos',]),
       test_suite='netsight.windowsauthplugin.tests.test_docs.test_suite',
       entry_points="""
       # -*- entry_points -*-
