@@ -1,3 +1,14 @@
+2.0 unreleased
+--------------
+
+- This is a major change
+- All LDAP code has been removed. If you want to use LDAP to look up 
+  user details then use a separate LDAP PAS plugin
+- The kerberos python library is now only installed if you add [unix] 
+  option with the egg
+- We now decode the username to Unicode before returning it
+
+
 1.1 2013-03-18
 --------------
 
