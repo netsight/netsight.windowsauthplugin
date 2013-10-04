@@ -126,6 +126,9 @@ class WindowsauthpluginHelper( BasePlugin ):
         if self.removedomain and '\\' in username:
             username = username.split('\\')[1]
 
+        # Convert to unicode before returning
+        username = username.encode('utf-8')
+
         # Trigger the session plugin
         LOG('SPNEGO plugin', DEBUG,  "%s: Have authenticated user: %s" % (remote_host, username))
         pas_instance = self._getPAS()
