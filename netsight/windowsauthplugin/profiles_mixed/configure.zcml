@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="netsight.windowsauthplugin">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Windows authentication for mixed environments"
+      directory="profiles/default"
+      description="Activates and configures netsight.windowsauthplugin with support for mixed authentication environments."
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      i18n:translate="title description"
+      />
+
+  <genericsetup:importStep
+      name="netsight.windowsauthplugin.mixed"
+      title="Windows authenticatino for mixed envinronments"
+      description="Activates and configures netsight.windowsauthplugin with support for mixed authentication environments."
+      handler=".handlers.configureWindowsAuthPlugin"
+      i18n:translate="title description"
+      />
+
+</configure>

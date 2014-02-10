@@ -83,6 +83,18 @@ In the example below:
 The keytab exported to *c:\\temp\\intranet.keytab* needs to be copied
 securely to the server running Plone.
 
+The default path for the keytab file in unix environments is
+``/etc/krb5.keytab``, but it can be customized by defining ``KRB5_KTNAME``
+environment variable. The keytab must be readable by the user running the Plone
+process.
+
+Troubleshooting
+===============
+
+- ERROR SPNEGO plugin 127.0.0.1: GSSError (('Unspecified GSS failure. Minor code may provide more information', 851968), ('', 100005))
+
+  **Solution**: This was seen with crypto type AES256 on RHEL6 server.
+  This was solved by changing crypto type to RC4.
 
 Glossary
 ========

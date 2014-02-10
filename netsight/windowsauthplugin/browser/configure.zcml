@@ -4,5 +4,12 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="netsight.windowsauthplugin">
 
+  <browser:page
+      name="netsight-windowsauthplugin-SPNEGO-challenge.js"
+      for="*"
+      layer="netsight.windowsauthplugin.interface.IWindowsAuthPluginMixedLayer"
+      class=".mixed.SPNEGOChallengeJSView"
+      permission="zope.Public"
+      />
 
 </configure>

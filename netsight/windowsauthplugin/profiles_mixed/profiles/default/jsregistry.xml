@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+  <javascript
+      id="netsight-windowsauthplugin-SPNEGO-challenge.js" enabled="True"
+      cacheable="False" cookable="False" inline="False" compression="none"
+      expression="python:'login_form' in request.URL or 'require_login' in request.URL"
+      />
+</object>
