@@ -1,4 +1,10 @@
-2.0 unreleased
+2.1 2014-02-10
+--------------
+
+- Add default configuration profile for mixed authentication environments
+  [datakurre]
+
+2.0 2013-03-27
 --------------
 
 - This is a major change
@@ -7,8 +13,6 @@
 - The kerberos python library is now only installed if you add [unix]
   option with the egg
 - We now decode the username to Unicode before returning it
-- Add default configuration profile for mixed authentication environments
-  [datakurre]
 
 1.1 2013-03-18
 --------------
