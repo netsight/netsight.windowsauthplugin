@@ -1,6 +1,22 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 
+REDIRECT_JS = u"""\
+(function() {
+    /* http://stackoverflow.com/questions/901115/ */
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
+        results = regex.exec(location.search);
+        return results == null ? '' :
+               decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+    /* Redirect authenticated user to 'logged_in', retaining came_from */
+    var came_from = getParameterByName('came_from');
+    window.location.replace('%s/logged_in?came_from=' + came_from);
+})();
+"""
+
 
 class SPNEGOChallengeJSView(BrowserView):
 
@@ -27,4 +43,4 @@ class SPNEGOChallengeJSView(BrowserView):
             return u"/* Authentication cookie was not set. Cannot redirect. */"
         else:
             # Return Javascript to redirect and continue login process
-            return "window.location.replace('%s/logged_in?came_from=%s');" % (self.context.portal_url(), self.request.get('came_from', '/'))
+            return REDIRECT_JS % self.context.portal_url()
