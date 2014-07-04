@@ -1,5 +1,5 @@
-2.3.1 (unreleased)
------------------
+2.3.1 (2014-07-04)
+------------------
 
 - Fixed issue with 'came_from' redirects not working correctly
 
