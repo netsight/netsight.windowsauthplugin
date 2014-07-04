@@ -12,18 +12,12 @@ def read(*rnames):
 version = '2.3'
 
 long_description = (
-    read('docs', 'README.txt')
+    read('README.rst')
     + '\n' +
     'Change history\n'
     '**************\n'
     + '\n' +
     read('docs', 'CHANGES.txt')
-    + '\n' +
-    'Detailed Documentation\n'
-    '**********************\n'
-    + '\n' +
-    read('netsight',
-         'windowsauthplugin', 'README.txt')
     + '\n' +
     'Contributors\n'
     '************\n'
@@ -37,7 +31,7 @@ tests_require = ['zope.testing']
 
 setup(name='netsight.windowsauthplugin',
       version=version,
-      description="A Windows Intergrated Authentication (SPNEGO/Kerberos) Plugin for PAS",
+      description="A Windows Integrated Authentication (SPNEGO/Kerberos) Plugin for PAS",
       long_description=long_description,
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
