@@ -39,6 +39,12 @@ class WindowsauthpluginHelper( BasePlugin ):
 
     _properties = (
             {
+                 "id": "service",
+                 "label": "GSSAPI Service",
+                 "type": "string",
+                 "mode": "w",
+             },
+            {
                  "id": "autogroups",
                  "label": "Additional Groups to add to this user",
                  "type": "lines",
@@ -63,7 +69,7 @@ class WindowsauthpluginHelper( BasePlugin ):
         self._setId(id)
         self.title = title
         self.auth_scheme = 'Negotiate'
-        self.service = 'HTTP'
+        self.service = ''
 
     security.declarePrivate( 'authenticateCredentials' )
     def authenticateCredentials( self, credentials ):
