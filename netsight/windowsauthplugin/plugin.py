@@ -11,6 +11,7 @@ from zExceptions import Forbidden
 from zLOG import LOG, ERROR, DEBUG, INFO
 
 import sys
+import urlparse
 
 if sys.platform == 'win32':
     WINDOWS = 1
@@ -110,7 +111,7 @@ class WindowsauthpluginHelper( BasePlugin ):
         else:
             service = self.service
             if not service:
-                service = "HTTP/" + request.SERVER_NAME
+                service = "HTTP/" + urlparse.urlsplit(request.SERVER_URL).netloc
                 
             result, context = kerberos.authGSSServerInit(service)
             if result != 1:
