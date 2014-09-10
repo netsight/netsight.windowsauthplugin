@@ -102,7 +102,11 @@ class WindowsauthpluginHelper( BasePlugin ):
                 raise Forbidden
 
         else:
-            result, context = kerberos.authGSSServerInit(self.service)
+            service = self.service
+            if not service:
+                service = "HTTP/" + request.SERVER_NAME
+                
+            result, context = kerberos.authGSSServerInit(service)
             if result != 1:
                 raise ValueError, "Kerberos authetication error"
 
