@@ -4,6 +4,8 @@
 from AccessControl.SecurityInfo import ClassSecurityInfo
 from App.class_init import default__class_init__ as InitializeClass
 
+from Globals import DevelopmentMode
+
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.PluggableAuthService.utils import classImplements
 
@@ -21,8 +23,14 @@ else:
 if WINDOWS:
     import sspi, sspicon
 else:
-    import kerberos
-    from kerberos import GSSError
+    try:
+        import kerberos
+        from kerberos import GSSError
+    except ImportError:
+        LOG("SPNEGO Plugin", ERROR, "No Kerberos system library present.")
+        if not DevelopmentMode:
+            # Fail explicit in production mode
+            raise
 
 import interface
 
